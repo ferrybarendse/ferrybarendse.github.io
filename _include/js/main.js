@@ -76,12 +76,21 @@ BRUSHED.slider = function(){
 		slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
 		thumb_links				:	0,			// Individual thumb links for each slide
 		thumbnail_navigation    :   0,			// Thumbnail navigation
-		slides 					:  	[			// Slideshow Images
-											{image : '_include/img/slider-images/image01.jpg', title : '<div class="slide-content">Ferry Barendse</div>', thumb : '', url : ''},
-											{image : '_include/img/slider-images/image02.jpg', title : '<div class="slide-content">Ferry Barendse</div>', thumb : '', url : ''}
+		slides 					:  	$('#home-slider img').map(function(index, element){
+			element = $(element);
+			return {
+				image: element.attr('src'),
+				title: '<div class="slide-content">' + element.attr('alt') + '</div>',
+				thumb: '',
+				url: ''
+			};
+		}).toArray(),
+								//[			// Slideshow Images
+								//			{image : 'images/slider-images/image01.jpg', title : '<div class="slide-content">Ferry Barendse</div>', thumb : '', url : ''},
+								//			{image : 'images/slider-images/image02.jpg', title : '<div class="slide-content">Ferry Barendse</div>', thumb : '', url : ''}
 											// {image : '_include/img/slider-images/image03.jpg', title : '<div class="slide-content">Ferry Barendse</div>', thumb : '', url : ''},
 											// {image : '_include/img/slider-images/image04.jpg', title : '<div class="slide-content">Ferry Barendse</div>', thumb : '', url : ''}  
-									],
+									//],
 									
 		// Theme Options			   
 		progress_bar			:	0,			// Timer for each slide							
